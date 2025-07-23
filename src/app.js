@@ -17,7 +17,17 @@ app.use(express.urlencoded({extended: true , limit: "16kb"}))
 // to store static public assests or to share them in local storage 
 app.use(express.static("public"))
 // cookie options to perform crud operations on cookies 
-app.use(express.cookieParser())
+app.use(cookieParser())
+
+
+// routes import statement 
+import userRoutes from "./routes/user.routes.js";
+
+//routes declaration
+// to get router we will use middleware
+// it will give control to user route
+app.use("/api/v1/users", userRoutes);
+
 
 
 
